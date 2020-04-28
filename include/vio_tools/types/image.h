@@ -71,6 +71,11 @@ namespace vio_tools
                 delete[] data_;
         }
 
+        void upload(const T *const data)
+        {
+            std::memcpy(data_, data, rows_ * cols_ * sizeof(T));
+        }
+
         void download(T *data)
         {
             std::memcpy(data, data_, rows_ * cols_ * sizeof(T));

@@ -119,13 +119,15 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
     include
+    ${CUDA_INCLUDE_DIRS}
     ${catkin_INCLUDE_DIRS}
     ${OpenCV_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
-    src/vio_tools/processing/image_derivatives.cpp
+        src/vio_tools/processing/image_derivatives.cpp
+        src/vio_tools/processing/cuda/image_derivatives.cu
 #   src/${PROJECT_NAME}/vio_tools.cpp
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES CUDA_SEPARABLE_COMPILATION ON)

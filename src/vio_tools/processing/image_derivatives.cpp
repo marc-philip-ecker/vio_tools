@@ -1,5 +1,4 @@
 /**
- * @file image_derivatives.cpp
  * @author Marc-Philip Ecker
  * @date 28.04.20
  */
@@ -7,8 +6,8 @@
 
 void vio_tools::sobel(const Image<uint8_t> &I, Image<int16_t> &Ix, Image<int16_t> &Iy)
 {
-    Ix = sobel_x(I);
-    Iy = sobel_y(I);
+    Ix.upload(sobel_x(I).data());
+    Iy.upload(sobel_y(I).data());
 }
 
 vio_tools::Image<int16_t> vio_tools::sobel_x(const Image<uint8_t> &I)
